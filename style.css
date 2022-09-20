@@ -1,16 +1,202 @@
 .jumbotron {
     padding-top: 6rem ;
-    background-color: #7de5ff;
+    background-color: #0e0e0e;
+}
+#about {
+    background-color: #0e0e0e;
 }
 #projects {
-    background-color: #7de5ff; 
+    background-color: #0e0e0e;
 }
-section{
+#gallery {
+    background-color: #0e0e0e;
+}
+#contact {
+    background-color: #0e0e0e;
+}
+#akhir-footer {
+    background-color: #1c1c1c;
+}
+section {
     padding-top: 5rem;
 }
-.gallery-img{
+.gallery-img {
     width: 100%;
 }
 #gallery .row > * {
     padding: 0%;
 }
+
+/* My Pictures Section */
+.pictures-box {
+    position: relative;
+    background-color: #0e0e0e;
+    border-radius: 10px;
+    height: 500px;
+    transform-style:preserve-3d;
+}
+
+.pictures-box::before {
+    content: 'MY';
+    position: absolute;
+    color: #fff;
+    font-size: 6em;
+    font-weight: bold;
+    font-style: italic;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: 0.5s;
+
+}
+.pictures-box:hover::before {
+    
+    opacity: 0.5;
+}
+
+.pictures-box::after {
+    content: 'PICTURES';
+    position: absolute;
+    color: #fff;
+    font-size: 4.3em;
+    font-weight: bold;
+    font-style: italic;
+    top: 350px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: 0.5s;
+
+}
+.pictures-box:hover::after {
+    
+    opacity: 0.5;
+}
+
+.pictures-name {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+    opacity: 0;
+    transform: translate3d(0, 0, 50px);
+    transition: 0.5s;
+}
+.pictures-box:hover .pictures-name {
+    top: 0px;
+    opacity: 1;
+}
+
+.testap {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate3d(-50%, 0, 120px);
+    opacity: 0;
+    transition: 0.5s;
+}
+.pictures-box:hover .testap {
+    opacity: 1;
+    bottom: 20px;
+}
+.gambar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 80px);
+    max-width: 350px;
+    transition: 0.5s;
+}
+.pictures-box:hover .gambar {
+    transform: translate3d(-50%, -50%, 100px) scale(1.2);
+}
+
+/* overlay */
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transition: 0.5s;
+    text-align: center;
+    padding: 50px 0;
+}
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, .5);
+}
+
+.overlay:target img {
+    animation: zoomDanfade 1s;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    border: 1px solid grey;
+    opacity: 0;
+}
+
+.overlay:target .close {
+    animation: slideDownfade .5s .5s forwards;
+}
+
+/* navigasi */
+.next, .prev {
+    width: 60px;
+    height: 100px;
+    background-image: url(img/acan-image/next1.png);
+    position: absolute;
+    text-indent: -9999px;
+    top: 40%;
+    transform: translate(-50%);
+    margin-left: 50px;
+}
+
+.prev {
+    background-image: url(img/acan-image/prev1.png);
+    margin-left: -50px;
+}
+
+/* animasi */
+@keyframes zoomDanfade {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+ @keyframes slideDownfade {
+    0% {
+        opacity: 0;
+        margin-top: -20px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+ }
